@@ -170,77 +170,103 @@ window.onload = function() {
                 event.preventDefault();
             }
         })
+        // document.querySelector('.js_add_card').addEventListener('click',function(){
+        //     var cloneCard = document.querySelector('.bank-card').cloneNode(true);
+        //         cloneCard.classList.add('clone-card');
+        //     this.parentNode.parentNode.insertBefore(cloneCard, this.parentNode);
+        //     return false;
+        // });
         document.querySelector('.bank-cards .block-cont').onclick = function(event) {
-          var target = event.target,
-              classField = target.classList.value,
-              cardBlock = target.closest('.bank-card'),
-              cardBlockLeft = cardBlock.firstChild.nextElementSibling;
-              // console.log(classField)
-              // console.dir(target)
-          switch(classField) {
-                case 'n_card' :
-                    numbEdit();
-                    break;
-                case 'm_card' :
-                    mounthEdit();
-                    break;
-                case 'y_card' :
-                    yearEdit();
-                    break;
-                case 'cv_card' :
-                    codeEdit();
-                    break;
-                case 'cv_card' :
-                    codeEdit();
-                    break;
-                case 'visa' :
-                    cardBlock.className = 'bank-card  visa-card';
-                    break;
-                case 'mastercard' :
-                    cardBlock.className = 'bank-card  mastercard-card';
-                    break;
-          }
-          function numbEdit () {
-            target.addEventListener('keyup',function(){
-                if(this.value.length == 4) {
-                    this.value = this.value + '\u2003'
-                }
-                if(this.value.length == 9) {
-                    this.value = this.value + '\u2003'
-                }
-                if(this.value.length == 14) {
-                    this.value = this.value + '\u2003'
-                }
-                var thisArea = cardBlockLeft.children[0].children[0];
-                thisArea.innerHTML = this.value;
-            });
-          }
-          function mounthEdit () {
-            target.addEventListener('keyup',function(){
-                var thisArea = cardBlockLeft.children[0].children[1].children[0];
-                thisArea.innerText = this.value;
-            });
-          }
-          function yearEdit () {
-            target.addEventListener('keyup',function(){
-                var thisArea = cardBlockLeft.children[0].children[1].children[2];
-                thisArea.innerText = this.value;
-            });
-          }
-          function codeEdit () {
-            target.addEventListener('keyup',function(){
-                var thisArea = cardBlockLeft.children[1].lastElementChild;
-                thisArea.innerText = this.value;
-            });
-          }
+          if (document.querySelector('.mobile') == undefined || document.querySelector('.mobile') == null) {
+              var target = event.target,
+                  classField = target.classList.value,
+                  cardBlock = target.closest('.bank-card'),
+                  cardBlockLeft = cardBlock.firstChild.nextElementSibling;
+              switch(classField) {
+                    case 'n_card' :
+                        numbEdit();
+                        break;
+                    case 'm_card' :
+                        mounthEdit();
+                        break;
+                    case 'y_card' :
+                        yearEdit();
+                        break;
+                    case 'cv_card' :
+                        codeEdit();
+                        break;
+                    case 'cv_card' :
+                        codeEdit();
+                        break;
+                    case 'visa' :
+                        cardBlock.className = 'bank-card  visa-card';
+                        target.className = 'visa active';
+                        target.parentNode.nextElementSibling.lastElementChild.className = 'mastercard';
+                        break;
+                    case 'mastercard' :
+                        cardBlock.className = 'bank-card  mastercard-card';
+                        target.className = 'mastercard active';
+                        target.parentNode.previousElementSibling.firstElementChild.className = 'visa';
+                        break;
+
+              }
+              function numbEdit () {
+                target.addEventListener('keyup',function(){
+                    if(this.value.length == 4) {
+                        this.value = this.value + '\u2003'
+                    }
+                    if(this.value.length == 9) {
+                        this.value = this.value + '\u2003'
+                    }
+                    if(this.value.length == 14) {
+                        this.value = this.value + '\u2003'
+                    }
+                    var thisArea = cardBlockLeft.children[0].children[0];
+                    thisArea.innerHTML = this.value;
+                });
+              }
+              function mounthEdit () {
+                target.addEventListener('keyup',function(){
+                    var thisArea = cardBlockLeft.children[0].children[1].children[0];
+                    thisArea.innerText = this.value;
+                });
+              }
+              function yearEdit () {
+                target.addEventListener('keyup',function(){
+                    var thisArea = cardBlockLeft.children[0].children[1].children[2];
+                    thisArea.innerText = this.value;
+                });
+              }
+              function codeEdit () {
+                target.addEventListener('keyup',function(){
+                    var thisArea = cardBlockLeft.children[1].lastElementChild;
+                    thisArea.innerText = this.value;
+                });
+              }
+          } 
         }
-        document.querySelector('.js_add_card').addEventListener('click',function(){
-            var cloneCard = document.querySelector('.bank-card').cloneNode(true);
-                cloneCard.classList.add('clone-card');
-            this.parentNode.parentNode.insertBefore(cloneCard, this.parentNode);
+    }
+    if (document.querySelector('.mobile') != undefined) {
+        $('.bank-card').each(function(){
+            $(this).find('.card-area:first').find('input').attr('maxlength','16');
         });
     }
     // cards
+    // mobile menu
+    if (document.querySelector('.mobile-menu ') != undefined) {
+       document.querySelector('.hamburger--collapse').onclick = function() {
+        this.classList.toggle('active');
+        document.querySelector('.mobile-menu').classList.toggle('active');
+        document.querySelector('body').classList.toggle('open-nav');
+       } 
+       document.querySelector('.close-menu').onclick = function(){
+        document.querySelector('.hamburger--collapse').classList.remove('active');
+        document.querySelector('.mobile-menu').classList.remove('active');
+        document.querySelector('body').classList.remove('open-nav');
+       }
+    }
+    // mobile menu
+
 }
 window.onresize = function() {
 
@@ -252,6 +278,17 @@ $(document).ready(function() {
     $('.js_validate button[type="submit"], .js_code').on("click", function(){
       return validate($(this).parent(".js_validate"));
     }); 
+    $('.js_add_card').on('click',function(){
+        var cloneCard = $('.bank-card:first').clone(true);
+        $(cloneCard).find('input').val('');
+        $(this).parent().before(cloneCard);
+        $(cloneCard).find('.bank-card__right').after('<span class="remove-card">X</span>');
+        $(cloneCard).find('.bank-card__right').after('<div class="align-center clearfix"><span class="form-butt waves-effect waves-light">Сохранить карту</span></div>');
+        return false;
+    });
+    $(document).on('click','.remove-card',function(){
+        $(this).parent('.bank-card').fadeOut(400);
+    });
     $('select').material_select();
     $('.modal-trigger').leanModal({
         dismissible: true,

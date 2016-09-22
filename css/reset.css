@@ -52,7 +52,7 @@ a{color:#8a8a8a;text-decoration:none;}
 a:hover, a:active, a:focus{text-decoration:none;color:#009fe3;}
 a img{border:none;}
 img{max-width:100%;max-height:100%;display:block;border-style:none;}
-noscript div{position:fixed;top:0;background: #fff;z-index:77777;left:0;right:0;width:500px;margin:0 auto;padding:50px;border:3px solid red;font-size:14px;text-transform:uppercase;color:#707070;}
+noscript div{position:relative;top:0;background: #fff;z-index:77777;left:0;right:0;width:100%;margin:0 auto;padding:50px;border:3px solid red;font-size:14px;text-align: center;text-transform:uppercase;color:#707070;}
 noscript div a{text-decoration:underline;color:blue;}
 input,
 textarea,
@@ -76,4 +76,5 @@ input[type="submit"]:focus,
 input[type="button"]:focus{outline:none;border:none;box-shadow:none;}
 button:focus{outline:none;border:none;box-shadow:none;}
 button {cursor: pointer}
-p{max-width: 100%;margin:0;word-wrap:break-word;}
+p{max-width: 100%;margin:0;}
+p,span,div,label,h1,h2,h3,h4,h5,h6,b,strong,i,em {word-wrap: break-word;}
