@@ -154,10 +154,12 @@ window.onload = function() {
             }else {
                 this.parentNode.classList.add('edit-form');
                 var fieldArea = document.querySelectorAll('[disabled]');
-                fieldArea.forEach(function(item, i, fieldArea){
+                for (var i = 0; i < fieldArea.length; i++) {
+                    console.log(fieldArea[i])
                     fieldArea[i].removeAttribute('disabled')
+                    console.log(fieldArea[i])
                     fieldArea[0].focus();
-                })
+                }
                 return false;
              }
         }
@@ -286,6 +288,12 @@ $(document).ready(function() {
         $(cloneCard).find('.bank-card__right').after('<div class="align-center clearfix"><span class="form-butt waves-effect waves-light">Сохранить карту</span></div>');
         return false;
     });
+    if(isMobile == true) {
+        $('.radio span').on('click',function(){
+            $(this).parents('.card-area').find('span').removeClass('active');
+            $(this).addClass('active');
+        });
+    }
     $(document).on('click','.remove-card',function(){
         $(this).parent('.bank-card').fadeOut(400);
     });

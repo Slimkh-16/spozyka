@@ -421,18 +421,50 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 	position: relative;
 	z-index: 5;
 	margin-top: -48px;
-	border-top: 6px solid $t;
-	background:#a77fca;
-	padding: 13px 0;
+	background:#522978;
+	padding: 40px 0 0;
 	font-size: 14px;
 	line-height: 16px;
 	color: #fff;
+	text-align: center;
 	@include fl;
 	.row {margin-bottom: 0;}
 	a {
 		color: #fff;
 		@include anim;
 		&:hover,&:focus {color: $th;}
+	}
+}
+.footer-list {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 16px;
+	color: #000;
+	li {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 15px 10px;
+		a ,span {
+			font-size: 16px;
+			line-height: 20px;
+			color: #fff;
+			@include anim;
+		}
+		a:hover,span {
+			color: #ffdc00;
+		}
+	}
+}
+.footer-holder {
+	margin-top: 40px;
+	padding: 15px 0;
+	background:#49266a;
+	font-size: 12px;
+	line-height: 24px;
+	color: #a57eb7;
+	a {
+		color: #a57eb7;
+		&:hover {text-decoration: underline;color: #a57eb7;}
 	}
 }
 .align-left {text-align: left;}
@@ -540,6 +572,8 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 	color: #fff;
 	letter-spacing: 3px;
 	@include fm;
+
+
 	// span {
 	// 	display: inline-block;
 	// 	margin-right: 24px;
@@ -696,9 +730,13 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 	}
 }
 .select-wrapper input.select-dropdown {
-	color: $th;@include fr;
+	color: $th;
+	@include fr;
 }
-.dropdown-content li>a, .dropdown-content li>span {color: $th;@include fr;}
+.dropdown-content li>a, .dropdown-content li>span {
+	color: $th;
+	@include fr;
+}
 .info-block__img img {margin: 0 auto;}
 .info-block__info {
 	padding: 20px 0 0;
@@ -708,10 +746,11 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 .thank {
 	margin-bottom: 25px;
 }
+.mobile .bank-card__right {margin-top: 30px;}
 .user-drop {
 	min-width: 300px;
 	.user-name {
-		padding: 10px 0;
+		padding: 10px;
 		@include fb;
 		color: $th;
 		font-size: 18px;

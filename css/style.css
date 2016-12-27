@@ -528,12 +528,12 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   position: relative;
   z-index: 5;
   margin-top: -48px;
-  border-top: 6px solid #ffdc00;
-  background: #a77fca;
-  padding: 13px 0;
+  background: #522978;
+  padding: 40px 0 0;
   font-size: 14px;
   line-height: 16px;
   color: #fff;
+  text-align: center;
   font-family: 'Roboto-Light',sans-serif;
 }
 .footer .row {
@@ -548,6 +548,46 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 }
 .footer a:hover, .footer a:focus {
   color: #4f177d;
+}
+
+.footer-list {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  color: #000;
+}
+.footer-list li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 15px 10px;
+}
+.footer-list li a, .footer-list li span {
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+  -moz-transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  -o-transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  -webkit-transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+  transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.footer-list li a:hover, .footer-list li span {
+  color: #ffdc00;
+}
+
+.footer-holder {
+  margin-top: 40px;
+  padding: 15px 0;
+  background: #49266a;
+  font-size: 12px;
+  line-height: 24px;
+  color: #a57eb7;
+}
+.footer-holder a {
+  color: #a57eb7;
+}
+.footer-holder a:hover {
+  text-decoration: underline;
+  color: #a57eb7;
 }
 
 .align-left {
@@ -898,11 +938,15 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   margin-bottom: 25px;
 }
 
+.mobile .bank-card__right {
+  margin-top: 30px;
+}
+
 .user-drop {
   min-width: 300px;
 }
 .user-drop .user-name {
-  padding: 10px 0;
+  padding: 10px;
   font-family: 'Roboto-Bold',sans-serif;
   color: #4f177d;
   font-size: 18px;

@@ -15,12 +15,12 @@
          url('../css/fonts/Roboto-Bold.svg#Roboto-Bold') format('svg');
 }
 @font-face {
-    font-family: 'Roboto-Thin';
-    src: url('../css/fonts/Roboto-Thin.eot');
-    src: url('../css/fonts/Roboto-Thin.eot') format('embedded-opentype'),
-         url('../css/fonts/Roboto-Thin.woff') format('woff'),
-         url('../css/fonts/Roboto-Thin.ttf') format('truetype'),
-         url('../css/fonts/Roboto-Thin.svg#Roboto-Thin') format('svg');
+    font-family: 'TypoGraphica';
+    src: url('../css/fonts/TypoGraphica.eot');
+    src: url('../css/fonts/TypoGraphica.eot') format('embedded-opentype'),
+         url('../css/fonts/TypoGraphica.woff') format('woff'),
+         url('../css/fonts/TypoGraphica.ttf') format('truetype'),
+         url('../css/fonts/TypoGraphica.svg#TypoGraphica') format('svg');
 }
 @font-face {
     font-family: 'Roboto-Medium';
@@ -38,6 +38,14 @@
          url('../css/fonts/Roboto-Regular.ttf') format('truetype'),
          url('../css/fonts/Roboto-Regular.svg#Roboto-Regular') format('svg');
 }
+/*@font-face {
+    font-family: 'TypoGraphica';
+    src: url('../css/fonts/TypoGraphica.eot');
+    src: url('../css/fonts/TypoGraphica.eot') format('embedded-opentype'),
+         url('../css/fonts/TypoGraphica.woff') format('woff'),
+         url('../css/fonts/TypoGraphica.ttf') format('truetype'),
+         url('../css/fonts/TypoGraphica.svg#TypoGraphica') format('svg');
+}*/
 div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
 form,fieldset,input,textarea,p,blockquote,th,td{padding:0;margin:0;}
 table{border-collapse:collapse;border-spacing:0;}
@@ -46,7 +54,7 @@ ul,nav{list-style:none;}
 input:focus, button:focus,a:focus, textarea:focus, select:focus{outline:none !important;}
 textarea{resize:none;}
 html, body{height:100%;min-height: 100%}
-body{font:14px/16px 'Roboto-Thin', verdana, sans-serif;background-color:#fff;min-width:320px;color:#7a7a7a;margin:0 auto;overflow-x:hidden;overflow-y:scroll;}
+body{font:14px/16px 'Roboto-Regular', verdana, sans-serif;letter-spacing: 1px;background-color:#fff;min-width:320px;color:#7a7a7a;margin:0 ;overflow-x:hidden;overflow-y:scroll;}
 section{max-width:100%;}
 a{color:#8a8a8a;text-decoration:none;}
 a:hover, a:active, a:focus{text-decoration:none;color:#009fe3;}
